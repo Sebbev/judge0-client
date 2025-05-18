@@ -1,0 +1,61 @@
+{
+	"name": "judge0-client",
+	"version": "1.0.0",
+	"description": "A TypeScript client for the Judge0 code execution API",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": ["dist", "LICENSE", "README.md"],
+	"type": "module",
+	"private": false,
+	"keywords": ["judge0", "client", "api", "wrapper", "code-execution", "typescript"],
+	"author": {
+		"name": "Sebastian Vallin",
+		"url": "https://github.com/Sebbev"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sebbev/judge0-client.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sebbev/judge0-client/issues"
+	},
+	"homepage": "https://github.com/sebbev/judge0-client#readme",
+	"scripts": {
+		"build": "tsc",
+		"check-types": "tsc --noEmit --skipLibCheck",
+		"test": "bun test",
+		"format": "biome format --write .",
+		"lint": "biome lint --write .",
+		"check": "biome check --write .",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@total-typescript/tsconfig": "^1.0.4",
+		"@types/bun": "^1.2.13",
+		"@types/node": "^22.15.18",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.0.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"lint-staged": {
+		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+			"biome check --files-ignore-unknown=true",
+			"biome check --write --no-errors-on-unmatched",
+			"biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
+			"biome check --write --unsafe --no-errors-on-unmatched",
+			"biome format --write --no-errors-on-unmatched",
+			"biome lint --write --no-errors-on-unmatched"
+		],
+		"*": ["biome check --no-errors-on-unmatched --files-ignore-unknown=true"]
+	},
+	"dependencies": {
+		"ky": "^1.8.1"
+	}
+}
