@@ -5,6 +5,12 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": ["dist", "LICENSE", "README.md"],
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
 	"type": "module",
 	"private": false,
 	"keywords": ["judge0", "client", "api", "wrapper", "code-execution", "typescript"],
